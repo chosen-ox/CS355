@@ -1,0 +1,31 @@
+Here are some short descriptions of what the tests are supposed to check:
+
+ 0 fcfs - main creates one thread and waits for it to join
+ 1 fcfs - main creates three threads and subsequently joins each after creating it
+ 2 fcfs - main creates three threads and joins them (after creating all three)
+ 3 fcfs - main creates one thread and does not call join
+ 4 fcfs - main creates three threads and joins one
+ 5 fcfs - main creates a thread after join returns
+ 6 fcfs - illegal thread id for join
+ 7 fcfs - 100 active threads
+ 8 fcfs - main joins already terminated thread
+ 9 fcfs - main creates three threads and one thread waits for another
+ 10 fcfs - Non linear wait
+ 11 fcfs - main creates one thread and joins it and that thread yields
+ 12 fcfs - main creates two threads and one yields causing main to exit
+ 13 fcfs - main creates 3 threads and all three yield 
+ 14 fcfs - main creates 3 threads - the threads yield and join on terminated threads
+ 15 fcfs - chain of joins
+ 16 sjf - simple sjf - 3 threads
+ 17 sjf - sjf and yield
+ 18 fcfs - non linear yields
+ 19 fcfs - main creates 2 threads one yields and one joins another
+ 20 sjf - sjf 3 threads - 2 yields - different run times between yields
+ 21 sjf - sjf 2 thread - main exits when only one thread joins
+ 22 sjf - sjf 2 threads - 1 executed in short bursts for long time - another starves
+ 23 sjf - sjf 5 threads - every other thread yields after sleeping 100 ms
+ test_nested_fifo - fifo 4 threads - threads created inside threads
+ test_nested_sjf - sjf 4 threads - thread created inside threads
+ test_sjf_yield - sjf 4 threads - each thread sleeps for differen amount of time and yields.
+
+

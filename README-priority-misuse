@@ -1,0 +1,12 @@
+Here are some short descriptions of what the tests are supposed to check:
+
+ - test_priority_simple: main creates 3 threads with different priorities and joins them (after creating all three)
+ - test_priority_quanta: main creates 1 thread that calls poll 10 times with a timeout of msecs - the thread should be scheduled 11 times
+ - test_priority_same_priority: main creates three threads and subsequently joins each after creating it (should have the same output as 1.c)
+ - test_priority_invalid: main creates 1 thread with invalid priority - the thread should not be scheduled
+ - test_priority_yield: main creates 3 threads with different priorities (-1, 0 and 1) and joins them (after creating all three) - each thread yields 100 times - threads should finish in this order: -1 -> 0 -> 1
+ - test_priority_join: main creates 3 threads with different priorities (-1, 0 and 1), 0 joins 1, -1 joins 0 - threads should finish in this order: 1 -> 0 -> -1
+ - test_misuse: main calls create, join, yield and libterminate before libinit; main then creates three threads, joins an invalid and all three valid threads before calling libterminate; main calls create & join & libinit (twice) again, and calls libterminate - the program should not crash or have memory leaks
+ - test_misuse_terminate: main creates 2 threads, each of which calls libterminate - program should not crash or have memory leaks
+ - test_priority_cpu_1: main creates two busy-waiting threads (-1 and 0) and one sleeping thread (1) - the expected %CPU is 79%
+ - test_priority_cpu_2: main creates one busy-waiting thread (-1) and one sleeping thread (0) - the expected %CPU is 60% 
